@@ -8,6 +8,7 @@ class PersonaSoporteSerializer(serializers.ModelSerializer):
 
 
 class PQRSerializer(serializers.ModelSerializer):
+    persona_soporte = PersonaSoporteSerializer(read_only=True)
     class Meta:
         model = PQR
         fields = '__all__'
