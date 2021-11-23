@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.db.models.deletion import SET_NULL
 
 # Create your models here.
@@ -13,3 +14,8 @@ class PQR(models.Model):
     estado     = models.CharField(max_length=32)
     comentario = models.TextField(blank=True)
     creacion   = models.DateField()
+
+class Bank(models.Model):
+    name = models.CharField(max_length=64)
+    address = models.CharField(max_length=64)
+    users = models.ManyToManyField(User)
